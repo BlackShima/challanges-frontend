@@ -1,0 +1,188 @@
+/* Style guide tokens */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+:root{
+  --white: hsl(0, 0%, 100%);
+  --stone-100: hsl(30, 54%, 90%);
+  --stone-150: hsl(30, 18%, 87%);
+  --stone-600: hsl(30, 10%, 34%);
+  --stone-900: hsl(24, 5%, 18%);
+  --brown-800: hsl(14, 45%, 36%);
+  --rose-800: hsl(332, 51%, 32%);
+  --rose-50: hsl(330, 100%, 98%);
+
+  --body-font: "Outfit", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  --heading-font: "Young Serif", Georgia, "Times New Roman", serif;
+
+  --base-gap: 16px;
+  --container-max: 900px;
+}
+
+/* Page */
+html,body{
+  height:100%;
+  margin:0;
+  background: var(--stone-100);
+  color: var(--stone-900);
+  font-family: var(--body-font);
+  font-size:16px; /* style guide paragraph size */
+  line-height:1.45;
+}
+
+/* Centered container used across header/main/footer */
+.container{
+  width: min(92vw, var(--container-max));
+  margin: 0 auto;
+  padding: 24px 0;
+}
+
+/* Header */
+.site-header{
+  background: transparent;
+  padding-top: 12px;
+  padding-bottom: 6px;
+}
+.site-header h1{
+  margin:0 0 6px;
+  font-family: var(--heading-font);
+  font-weight:400;
+  font-size:1.6rem;
+  color: var(--stone-900);
+}
+.meta{
+  margin:0;
+  color: var(--stone-600);
+  max-width: 55ch;
+}
+
+/* Layout: single column on small screens, two-column on wide */
+main.container{
+  display: grid;
+  gap: var(--base-gap);
+  grid-template-columns: 1fr;
+  align-items: start;
+  padding-bottom: 24px;
+}
+
+/* Card */
+.card{
+  background: var(--white);
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 6px 18px rgba(30,30,30,0.06);
+  border: 1px solid rgba(0,0,0,0.04);
+}
+
+/* Sidebar keeps a fixed width on wide screens */
+.sidebar{
+  /* nothing here on mobile */
+}
+
+/* Headings */
+h2{
+  margin-top:0;
+  font-family: var(--heading-font);
+  color: var(--brown-800);
+  font-size:1.1rem;
+  margin-bottom:10px;
+}
+h3{
+  margin: 18px 0 8px;
+  color: var(--stone-900);
+  font-weight:600;
+  font-size:0.95rem;
+}
+
+/* Lists and instructions */
+ul,ol{
+  margin: 8px 0 16px 20px;
+  color: var(--stone-600);
+}
+ol li, ul li{
+  margin-bottom:8px;
+}
+
+/* Prep highlight box (pink background) */
+.prep-box{
+  background: var(--rose-50);
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.03);
+  margin-bottom: 12px;
+}
+
+/* Table (nutrition) */
+table{
+  border-collapse: collapse;
+  width:100%;
+  font-size:0.95rem;
+}
+th, td{
+  padding:10px 12px;
+  border-bottom:1px solid rgba(0,0,0,0.06);
+  text-align:left;
+  color: var(--stone-600);
+}
+thead th{
+  color: var(--stone-900);
+  font-weight:600;
+  background: transparent;
+}
+
+/* Footer attribution */
+.attribution{
+  font-size: 12px;
+  text-align:center;
+  color: var(--stone-600);
+  padding: 18px 0 28px;
+}
+a{
+  color: var(--rose-800);
+  text-decoration: none;
+}
+
+/* Hero image in card */
+.image-wrap{
+  background: var(--white);
+  padding: 12px;
+  border-radius: 14px;
+  width:100%;
+  max-width:100%;
+  margin: 0 auto 18px;
+  box-shadow: 0 6px 18px rgba(30,30,30,0.06);
+}
+.recipe-hero{
+  display:block;
+  width:100%;
+  height:auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* Responsive: at wider widths show two-column layout and slightly larger container */
+@media (min-width: 720px){
+  :root{ --container-max: 736px; }
+  main.container{
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .image-wrap{
+    max-width:100%;
+  }
+  .container{ padding-top: 28px; padding-bottom: 28px; }
+  h2{ font-size:1.2rem; }
+  .card{ padding: 28px; border-radius: 16px; }
+}
+
+/* Larger desktops */
+@media (min-width: 1200px){
+  .site-header h1{ font-size:1.8rem; }
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: rgba(0,0,0,0.1);
+    margin: 32px 0;
+}
