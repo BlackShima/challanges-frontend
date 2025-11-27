@@ -95,12 +95,11 @@ h3{
 }
 
 /* Lists and instructions */
-ul,ol{
-  margin: 8px 0 16px 20px;
-  color: var(--stone-600);
-}
-ol li, ul li{
-  margin-bottom:8px;
+ul,
+ol {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
 }
 
 /* Prep highlight box (pink background) */
